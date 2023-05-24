@@ -58,12 +58,16 @@ public class MainTest {
         Coffee coffee = new SimpleCoffee();
         Coffee coffeeWithMilk = new MilkDecorator(coffee);
         Coffee coffeeWithMilkAndSugar = new SugarDecorator(coffeeWithMilk);
-        Coffee coffeeWithOolongtee = new OolongteeDecorator(coffee);
+        Coffee coffeeWithOolongtee = new OolongteeDecorator(coffeeWithMilkAndSugar);
 
         System.out.println("Coffee cost: " + coffee.cost());
         System.out.println("Coffee with Milk cost: " + coffeeWithMilk.cost());
         System.out.println("Coffee with Milk and Sugar cost: " + coffeeWithMilkAndSugar.cost());
-        System.out.printf("Coffee with Oolongtea cost : %.2f\n", coffeeWithOolongtee.cost());
+        System.out.printf("Coffee with Mile, and Sugar, and Oolongtea cost : %.2f\n", coffeeWithOolongtee.cost());
+
+        System.out.println("-------------------");
+        Coffee coffee1 = new OolongteeDecorator(new SugarDecorator( new MilkDecorator( new SimpleCoffee())));
+        System.out.printf("全家桶： %.2f\n", coffee1.cost());
     }
 }
 

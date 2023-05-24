@@ -11,3 +11,4 @@ public class HeadTennisRacket extends RacketPrototype{
         return new HeadTennisRacket(this.brand, this.model, this.weight, this.balancePoint);
     }
 }
+
